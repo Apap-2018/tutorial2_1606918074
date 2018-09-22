@@ -1,0 +1,42 @@
+latihan project viral
+1. Ganti baris @RequestMapping(“/viral”) menjadi @RequestMapping(“/viral2jari”).
+a. Apakah terjadi compile error?
+   tidak
+b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi
+   not found error, karena mapping ke viral sudah tidak ada/diganti
+c. Apakah Kegunaan @RequestMapping(“/viral”)
+   RequestMapping berfungsi untuk mengakses file html ekstensi viral pada project
+
+2. Ganti nama method index() menjadi nama method viral()
+a. Apakah terjadi compile error?
+   tidak
+b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+   bisa diakses, muncul seperti biasa, karena ReturnMapping nya tetap ke ekstensi /viral dan return dari method itu adalah viral
+
+3. Ganti string return type menjadi menjadi return “viral2jari”
+a. Apakah terjadi compile error?
+   tidak
+b. Coba akses localhost:8080/viral, berikan alasan dan jelaskan apa yang terjadi.
+   whitelabel (internal server error), template viral2jari might not exist or not accesible
+c. Apakah kegunaan return type pada method controller tersebut?
+   return berfungsi untuk mengembalikan file dengan nama yang sesuai dengan string yang kita return. kalau string return nya diganti bisa menyebabkan file dengan string nama tersebut tidak bisa ditemukan
+
+
+latihan Request Parameter
+1. Mengapa tulisan “In My feeling” pada thymeleaf challenge tidak pernah muncul di browser?
+    karena yang akan ditampilkan adalah yang ada di th:text
+2. Ubah nilai anotasi Request Mapping “/challenge” menjadi “/viral/challenge”. Deskripsikan hasil pada browser dan kembalikan ke bentuk sebelumny
+   whitelabel (this app has no explicit mapping for/error) karena ReturnMapping /viral/challenge tidak ada
+3. Akses localhost:8080/challenge.
+a. Deskripsikan hasilnya
+   bad request, string param 'name' tidak ada
+b. dengan ditambahkan required = false maka tidak wajib kita tambahkan param pada link, dan akan mengeluarkan null. Jika kita tambahkan param 'name' pada link maka akan muncul 'name' seperti biasa
+c. dengan ditambahkan required = false dan defaultValue = kiki, maka jika tidak diberikan param pada link, nilai default yang akan mengisi param 'name' adalah 'kiki'
+
+latihan Path Variable
+1. saat akses localhost:8080/challenge/, muncul bad request, string param 'name' tidak ada)
+2. Dengan ditambah Optional variabel, muncul whitelabel (ambiguous handler) karena dengan adanya method ChallengePath dengan value /challenge dan /challenge/name, jika /challenge yang keluar maka akan ada 2 method yang bisa menghandle fungsi tersebut.
+   saat salah satu fungsi dihapus maka fungsi akan berjalan dengan normal.
+3. saat salah satu fungsi dihapus, maka :
+   hasil dari /challenge adalah KB do you love me..dst
+   hasil dari /challenge/kiki adalah kiki do you love me...dst
