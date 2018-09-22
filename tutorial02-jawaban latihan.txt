@@ -1,3 +1,7 @@
+Jessica Pertiwi
+1606918074
+APAP-C
+
 latihan project viral
 1. Ganti baris @RequestMapping(“/viral”) menjadi @RequestMapping(“/viral2jari”).
 a. Apakah terjadi compile error?
